@@ -7,7 +7,7 @@
 }
 /* =======================================================
 *
-* 	Template Style 
+* 	Template Style
 *	Edit this section
 *
 * ======================================================= */
@@ -332,16 +332,7 @@ h1, h2, h3, h4, h5, h6 {
   -ms-border-radius: 4px;
   border-radius: 4px;
 }
-#fh5co-testimonials .box-testimony blockquote:after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 40px;
-  border-top: 15px solid black;
-  border-top-color: #fff;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-}
+
 #fh5co-testimonials .box-testimony blockquote .quote {
   position: absolute;
   top: 0;

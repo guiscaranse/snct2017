@@ -29,6 +29,7 @@
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="/vendor/css/bootstrap.css">
 	<link rel="stylesheet" href="/vendor/css/lightblue.css">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 
 	<!-- Modernizr JS -->
@@ -44,6 +45,8 @@
 
 </style>
 	</head>
+
+{% include "modals.twig" %}
 	<body>
 	<header role="banner" id="fh5co-header">
 			<div class="container">
@@ -55,12 +58,10 @@
 		        <div id="navbar" class="navbar-collapse collapse">
 		          <ul class="nav navbar-nav navbar-right">
 		            <li class="active"><a href="#" data-nav-section="home"><span>Início</span></a></li>
-		            <li><a href="#" data-nav-section="about"><span>Evento</span></a></li>
-		            <li><a href="#" data-nav-section="services"><span>Programação</span></a></li>
-		            <li><a href="#" data-nav-section="features"><span>Certificado</span></a></li>
-		            <li><a href="#" data-nav-section="testimonials"><span>Organização</span></a></li>
-		            <li><a href="#" data-nav-section="pricing"><span>Inscrições</span></a></li>
-		            <li><a href="#" data-nav-section="press"><span>Contato</span></a></li>
+		            <li><a href="#" data-nav-section="evento"><span>Evento</span></a></li>
+		            <li><a href="#" data-nav-section="programacao"><span>Programação</span></a></li>
+		            <li><a href="#" data-nav-section="certificado"><span>Oficinas &amp; Minicursos</span></a></li>
+		            <li><a href="#" data-nav-section="organizacao"><span>Organização</span></a></li>
 		          </ul>
 		        </div>
 			    </nav>
@@ -79,11 +80,13 @@
 		    				<div class="fh5co-owl-text-wrap">
 						    	<div class="fh5co-owl-text">
                     <div class="col-md-6 center-block iphone-image to-animate">
-                      <img src="/vendor/images/SNCT.png" alt="Free HTML5 Template by FREEHTML5.co">
+											<center>
+                      <img src="/vendor/images/leonardo.png" style="max-height: 200px; max-width: 200px;">
+										</center>
                     </div>
 									<h2 class="fh5co-lead to-animate">Semana Nacional de Ciência e Tecnologia 2017</h3>
-									<h2 class="fh5co-sub-lead to-animate">23 a 29 de Outubro de 2017 no IFBA <i>Campus</i> Porto Seguro</h3>
-									<p class="to-animate-2"><a href="http://freehtml5.co/" target="_blank" class="btn btn-primary btn-lg">Inscreva-se</a></p>
+									<h2 class="fh5co-sub-lead to-animate">23 a 27 de Outubro de 2017 no IFBA <i>Campus</i> Porto Seguro</h3>
+									<p class="to-animate-2"><a href="#" data-nav-section="certificado" class="btn btn-primary btn-lg">Inscreva-se</a></p>
 								</div>
 							</div>
 		    			</div>
@@ -97,13 +100,14 @@
 			    			<div class="fh5co-owl-text-wrap">
 						    	<div class="fh5co-owl-text">
 						    		<h1 class="fh5co-lead to-animate">Semana Nacional de Ciência e Tecnologia 2017</h1>
-									<h2 class="fh5co-sub-lead to-animate">26 a 31 de Outubro de 2017 no IFBA <i>Campus</i> Porto Seguro</h3>
-									<p class="to-animate-2"><a href="#" class="btn btn-primary btn-lg">Inscreva-se</a></p>
+									<h2 class="fh5co-sub-lead to-animate">A Matemática é uma das ciências mais antigas que temos registros. Ela resistiu ao
+tempo e ajudou no desenvolvimento de todas as outras áreas.</h3>
+									<p class="to-animate-2"><a href="https://www.facebook.com/ifbaportoseguro/" class="btn btn-primary btn-lg"><i class="icon-facebook"></i> Visite nossa página do Facebook</a></p>
 						    	</div>
 						    </div>
 					    </div>
 					    <div class="col-md-4 col-md-push-1 col-sm-4 col-sm-push-1 iphone-image">
-					    	<div class="iphone to-animate-2"><img src="/vendor/images/SNCT.png" alt="Free HTML5 Template by FREEHTML5.co"></div>
+					    	<div class="iphone to-animate-2"><img src="/vendor/images/promo.png"></div>
 					    </div>
 
 		    		</div>
@@ -112,7 +116,7 @@
 		</div>
 	</div>
 
-	<div id="fh5co-about-us" data-section="about">
+	<div id="fh5co-about-us" data-section="evento">
 		<div class="container">
 			<div class="row row-bottom-padded-lg" id="about-us">
 				<div class="col-md-12 section-heading text-center">
@@ -128,70 +132,20 @@
 				</div>
 				<div class="col-md-4 to-animate">
 					<h2>Por que a matemática?</h2>
-					<p>A Matemática foi escolhida como tema da Semana Nacional de Ciência e Tecnologia 2017, que acontece de 23 a 29 de outubro em todo o país. A escolha baseia-se no fato de que dois dos maiores eventos com este tema acontecerão no Brasil nos próximos anos. A pesquisa matemática no Brasil teve o seu primeiro grande impulso com o Matemático maranhense Joaquim Gomes de Souza, por isso, a SNCT de 2017 vai homenageá-lo, vamos conhecer um pouco de sua vida e de sua história. Hoje o nosso país tem uma grande instituição de referência internacional, o Instituto de Matemática Pura e Aplicada (IMPA) no Rio de Janeiro, com um papel vanguarda no Brasil e na América Latina, tanto pela excelência da sua pesquisa, como pelo seu papel na formação de jovens cientistas e na difusão da Matemática.</p>
-				</div>
-			</div>
-			<div class="row" id="team">
-				<div class="col-md-12 section-heading text-center to-animate">
-					<h2>Team</h2>
-				</div>
-				<div class="col-md-12">
-					<div class="row row-bottom-padded-lg">
-						<div class="col-md-4 text-center to-animate">
-							<div class="person">
-								<img src="images/person2.jpg" class="img-responsive img-rounded" alt="Person">
-								<h3 class="name">John Doe</h3>
-								<div class="position">Web Developer</div>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics.</p>
-								<ul class="social social-circle">
-									<li><a href="#"><i class="icon-twitter"></i></a></li>
-									<li><a href="#"><i class="icon-linkedin"></i></a></li>
-									<li><a href="#"><i class="icon-instagram"></i></a></li>
-									<li><a href="#"><i class="icon-github"></i></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-4 text-center to-animate">
-							<div class="person">
-								<img src="images/person3.jpg" class="img-responsive img-rounded" alt="Person">
-								<h3 class="name">Rob Smith</h3>
-								<div class="position">Web Designer</div>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics.</p>
-								<ul class="social social-circle">
-									<li><a href="#"><i class="icon-twitter"></i></a></li>
-									<li><a href="#"><i class="icon-linkedin"></i></a></li>
-									<li><a href="#"><i class="icon-instagram"></i></a></li>
-									<li><a href="#"><i class="icon-dribbble"></i></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-4 text-center to-animate">
-							<div class="person">
-								<img src="images/person4.jpg" class="img-responsive img-rounded" alt="Person">
-								<h3 class="name">John Doe</h3>
-								<div class="position">Photographer</div>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics.</p>
-								<ul class="social social-circle">
-									<li><a href="#"><i class="icon-twitter"></i></a></li>
-									<li><a href="#"><i class="icon-linkedin"></i></a></li>
-									<li><a href="#"><i class="icon-instagram"></i></a></li>
-									<li><a href="#"><i class="icon-github"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
+					<p>A Matemática foi escolhida como tema da <strong>Semana Nacional de Ciência e Tecnologia 2017</strong>, que acontece de 23 a 29 de outubro em todo o país. A escolha baseia-se no fato de que dois dos maiores eventos com este tema acontecerão no Brasil nos próximos anos. A pesquisa matemática no Brasil teve o seu primeiro grande impulso com o Matemático maranhense Joaquim Gomes de Souza, por isso, a SNCT de 2017 vai homenageá-lo, vamos conhecer um pouco de sua vida e de sua história. Hoje o nosso país tem uma grande instituição de referência internacional, o Instituto de Matemática Pura e Aplicada (IMPA) no Rio de Janeiro, com um papel vanguarda no Brasil e na América Latina, tanto pela excelência da sua pesquisa, como pelo seu papel na formação de jovens cientistas e na difusão da Matemática.</p>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div id="fh5co-our-services" data-section="services">
+	<div id="fh5co-our-services" data-section="programacao">
 		<div class="container">
 			<div class="row row-bottom-padded-sm">
 				<div class="col-md-12 section-heading text-center">
-					<h2 class="to-animate">Our Services</h2>
+					<h2 class="to-animate">Programação</h2>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 to-animate">
-							<h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
+							<h3>A ideia central é mostrar que a Matemática está nas coisas mais simples do cotidiano e que somos reféns desta ciência o tempo inteiro.</h3>
+							<h3><a href="#" data-toggle="modal" data-target="#programacao">Confira a agenda completa!</a></h3>
 						</div>
 					</div>
 				</div>
@@ -199,308 +153,108 @@
 			<div class="row">
 				<div class="col-md-4">
 					<div class="box to-animate">
-						<div class="icon colored-1"><span><i class="icon-mustache"></i></span></div>
-						<h3>100% free</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+						<div class="icon colored-1"><span><i class="fa fa-binoculars" aria-hidden="true"></i></span></div>
+						<h3>Exposições</h3>
+						<p>Mostra de Artes Plásticas e/ ou Audiovisuais como pintura, escultura, artesanato, fotografias, filmes, documentários etc. E também a mostra de Trabalhos Acadêmicos como apresentação de pesquisa, ensino ou extensão.</p>
 					</div>
 					<div class="box to-animate">
-						<div class="icon colored-4"><span><i class="icon-heart"></i></span></div>
-						<h3>Made with love</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						<div class="icon colored-4"><span><i class="fa fa-cube" aria-hidden="true"></i></span></div>
+						<h3>Jogos matemáticos</h3>
+						<p>Atividade presencial com envolvimento dos participantes.</p>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="box to-animate">
 						<div class="icon colored-2"><span><i class="icon-screen-desktop"></i></span></div>
-						<h3>Fully responsive</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						<h3>Mesas redondas</h3>
+						<p>Mesas redondas com assunto relacionado ao tema 'A matemática está em tudo' onde os visitantes podem participar de debates interessantes sobre o mesmo.</p>
 					</div>
 					<div class="box to-animate">
 						<div class="icon colored-5"><span><i class="icon-rocket"></i></span></div>
-						<h3>Fast &amp; light</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+						<h3>Oficinas &amp; Minicursos</h3>
+						<p>Minicursos de caráter mais teórico, que proporciona novos conhecimentos e vivências. Oficinas que implica a produção coletiva, com a finalidade de promover o aprendizado compartilhado.</p>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="box to-animate">
 						<div class="icon colored-3"><span><i class="icon-eye"></i></span></div>
-						<h3>Retina-ready</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+						<h3>Palestras</h3>
+						<p>Explanação sucinta de assunto relacionado ao tema 'A matemática está em tudo' que contribuem para o desenvolvimento crítico e pedagógico.</p>
 					</div>
 					<div class="box to-animate">
 						<div class="icon colored-6"><span><i class="icon-user"></i></span></div>
-						<h3>For creative like you!</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						<h3>Apresentações Culturais</h3>
+						<p>Venha presenciar apresentações relacionadas às artes cênicas e música feitas por pessoas incrivelmente talentosas.</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div id="fh5co-features" data-section="features">
+	<div id="fh5co-features" data-section="certificado">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 section-heading text-center">
-					<h2 class="single-animate animate-features-1">Features</h2>
+					<h2 class="single-animate animate-features-1">Inscrições para oficinas</h2>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 single-animate animate-features-2">
-							<h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
+							<h3>Inscreva-se <strong>para participar</strong>.<p>Você também pode escolher um minicurso ou oficina</h3>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row row-bottom-padded-sm">
-				<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-service to-animate">
-					<div class="fh5co-icon"><i class="icon-present"></i></div>
-					<div class="fh5co-desc">
-						<h3>100% Free</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-service to-animate">
-					<div class="fh5co-icon"><i class="icon-eye"></i></div>
-					<div class="fh5co-desc">
-						<h3>Retina Ready</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-					</div>
-				</div>
-				<div class="clearfix visible-sm-block visible-xs-block"></div>
-				<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-service to-animate">
-					<div class="fh5co-icon"><i class="icon-crop"></i></div>
-					<div class="fh5co-desc">
-						<h3>Fully Responsive</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-service to-animate">
-					<div class="fh5co-icon"><i class="icon-speedometer"></i></div>
-					<div class="fh5co-desc">
-						<h3>Lightweight</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-					</div>
-				</div>
-				<div class="clearfix visible-sm-block visible-xs-block"></div>
-				<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-service to-animate">
-					<div class="fh5co-icon"><i class="icon-heart"></i></div>
-					<div class="fh5co-desc">
-						<h3>Made with Love</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-service to-animate">
-					<div class="fh5co-icon"><i class="icon-umbrella"></i></div>
-					<div class="fh5co-desc">
-						<h3>Eco Friendly</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-					</div>
-				</div>
-				<div class="clearfix visible-sm-block visible-xs-block"></div>
 			</div>
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4 single-animate animate-features-3">
-					<a href="#" class="btn btn-primary btn-block">Learn More</a>
+					<button type="button" data-toggle="modal" data-target="#inscricoes" class="btn btn-primary btn-block">Se inscrever</button>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div id="fh5co-testimonials" data-section="testimonials">
+	<div id="fh5co-testimonials" data-section="organizacao">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 section-heading text-center">
-					<h2 class="to-animate">Happy Clients Says...</h2>
+					<h2 class="to-animate">Comissão Organizadora</h2>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 subtext to-animate">
-							<h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
+							<h3>Algumas das pessoas que dão vida a SNCT 2017</h3>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-4">
-					<div class="box-testimony to-animate">
+				<center>
+				<div class="col-md-4 box-testimony">
+					<div class="to-animate">
 						<blockquote>
-							<span class="quote"><span><i class="icon-quote-left"></i></span></span>
-							<p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
+							<p>Aristides Carlos Souto Rocha
+							<br>Bartolo Elias Barrios Barrios
+							<br>Carla Sandra Camuso Fernandez
+							<br>Danilo de Souza Soares</p>
 						</blockquote>
-						<p class="author">John Doe, CEO <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> <span class="subtext">Creative Director</span></p>
 					</div>
-
-				</div>
-				<div class="col-md-4">
-					<div class="box-testimony to-animate">
-						<blockquote>
-							<span class="quote"><span><i class="icon-quote-left"></i></span></span>
-							<p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.&rdquo;</p>
-						</blockquote>
-						<p class="author">John Doe, CEO <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> <span class="subtext">Creative Director</span></p>
-					</div>
-
-
 				</div>
 				<div class="col-md-4">
 					<div class="box-testimony to-animate">
 						<blockquote>
-							<span class="quote"><span><i class="icon-quote-left"></i></span></span>
-							<p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
+							<p>Helder Kenji Tanaka
+							<br>Marcionila Alexandre dos P. Adães Mota
+							<br>Mirella Patrícia Chaves Lima</p>
 						</blockquote>
-						<p class="author">John Doe, Founder <a href="#">FREEHTML5.co</a> <span class="subtext">Creative Director</span></p>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="fh5co-pricing" data-section="pricing">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 section-heading text-center">
-					<h2 class="single-animate animate-pricing-1">Pricing</h2>
-					<div class="row">
-						<div class="col-md-8 col-md-offset-2 subtext single-animate animate-pricing-2">
-							<h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
-						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-3 col-sm-6">
-					<div class="price-box to-animate">
-						<h2 class="pricing-plan">Starter</h2>
-						<div class="price"><sup class="currency">$</sup>7<small>/mo</small></div>
-						<p>Basic customer support for small business</p>
-						<hr>
-						<ul class="pricing-info">
-							<li>10 projects</li>
-							<li>20 Pages</li>
-							<li>20 Emails</li>
-							<li>100 Images</li>
-						</ul>
-						<a href="#" class="btn btn-default btn-sm">Get started</a>
+				<div class="col-md-4">
+					<div class="box-testimony to-animate">
+						<blockquote>
+							<p>Roberto Plácido Teixe
+							<br>Rosemary Magalhães Lima
+							<br>Silmara Maria Magnobosco
+							<br>Tatiana de Souza Limaa</p>
+						</blockquote>
 					</div>
 				</div>
-				<div class="col-md-3 col-sm-6">
-					<div class="price-box to-animate">
-						<h2 class="pricing-plan">Regular</h2>
-						<div class="price"><sup class="currency">$</sup>19<small>/mo</small></div>
-						<p>Basic customer support for small business</p>
-						<hr>
-						<ul class="pricing-info">
-							<li>15 projects</li>
-							<li>40 Pages</li>
-							<li>40 Emails</li>
-							<li>200 Images</li>
-						</ul>
-						<a href="#" class="btn btn-default btn-sm">Get started</a>
-					</div>
-				</div>
-				<div class="clearfix visible-sm-block"></div>
-				<div class="col-md-3 col-sm-6 to-animate">
-					<div class="price-box popular">
-						<div class="popular-text">Best value</div>
-						<h2 class="pricing-plan">Plus</h2>
-						<div class="price"><sup class="currency">$</sup>79<small>/mo</small></div>
-						<p>Basic customer support for small business</p>
-						<hr>
-						<ul class="pricing-info">
-							<li>Unlimitted projects</li>
-							<li>100 Pages</li>
-							<li>100 Emails</li>
-							<li>700 Images</li>
-						</ul>
-						<a href="#" class="btn btn-primary btn-sm">Get started</a>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6">
-					<div class="price-box to-animate">
-						<h2 class="pricing-plan">Enterprise</h2>
-						<div class="price"><sup class="currency">$</sup>125<small>/mo</small></div>
-						<p>Basic customer support for small business</p>
-						<hr>
-						<ul class="pricing-info">
-							<li>Unlimitted projects</li>
-							<li>Unlimitted Pages</li>
-							<li>Unlimitted Emails</li>
-							<li>Unlimitted Images</li>
-						</ul>
-						<a href="#" class="btn btn-default btn-sm">Get started</a>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
-
-	<div id="fh5co-press" data-section="press">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 section-heading text-center">
-					<h2 class="single-animate animate-press-1">Press Releases</h2>
-					<div class="row">
-						<div class="col-md-8 col-md-offset-2 subtext single-animate animate-press-2">
-							<h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<!-- Press Item -->
-					<div class="fh5co-press-item to-animate">
-						<div class="fh5co-press-img" style="background-image: url(images/img_7.jpg)">
-						</div>
-						<div class="fh5co-press-text">
-							<h3 class="h2 fh5co-press-title">Simplicity <span class="fh5co-border"></span></h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis eius quos similique suscipit dolorem cumque vitae qui molestias illo accusantium...</p>
-							<p><a href="#" class="btn btn-primary btn-sm">Learn more</a></p>
-						</div>
-					</div>
-					<!-- Press Item -->
-				</div>
-
-				<div class="col-md-6">
-					<!-- Press Item -->
-					<div class="fh5co-press-item to-animate">
-						<div class="fh5co-press-img" style="background-image: url(images/img_8.jpg)">
-						</div>
-						<div class="fh5co-press-text">
-							<h3 class="h2 fh5co-press-title">Versatile <span class="fh5co-border"></span></h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis eius quos similique suscipit dolorem cumque vitae qui molestias illo accusantium...</p>
-							<p><a href="#" class="btn btn-primary btn-sm">Learn more</a></p>
-						</div>
-					</div>
-					<!-- Press Item -->
-				</div>
-
-				<div class="col-md-6">
-					<!-- Press Item -->
-					<div class="fh5co-press-item to-animate">
-						<div class="fh5co-press-img" style="background-image: url(images/img_9.jpg);">
-						</div>
-						<div class="fh5co-press-text">
-							<h3 class="h2 fh5co-press-title">Aesthetic <span class="fh5co-border"></span></h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis eius quos similique suscipit dolorem cumque vitae qui molestias illo accusantium...</p>
-							<p><a href="#" class="btn btn-primary btn-sm">Learn more</a></p>
-						</div>
-					</div>
-					<!-- Press Item -->
-				</div>
-
-				<div class="col-md-6">
-					<!-- Press Item -->
-					<div class="fh5co-press-item to-animate">
-						<div class="fh5co-press-img" style="background-image: url(images/img_10.jpg);">
-						</div>
-						<div class="fh5co-press-text">
-							<h3 class="h2 fh5co-press-title">Creative <span class="fh5co-border"></span></h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis eius quos similique suscipit dolorem cumque vitae qui molestias illo accusantium...</p>
-							<p><a href="#" class="btn btn-primary btn-sm">Learn more</a></p>
-						</div>
-					</div>
-					<!-- Press Item -->
-				</div>
-
+			</center>
 			</div>
 		</div>
 	</div>
@@ -510,20 +264,8 @@
 		<div class="container">
 			<div class="row row-bottom-padded-sm">
 				<div class="col-md-12">
-					<p class="copyright text-center">&copy; 2015 Free <a href="index.html">Crew</a>. All Rights Reserved. <br> Free HTML5 Template by <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> | Images by <a href="http://pexels.com/" target="_blank">Pexels</a> &amp;  <a href="http://unsplash.com/" target="_blank">Unsplash</a></p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<ul class="social social-circle">
-						<li><a href="#"><i class="icon-twitter"></i></a></li>
-						<li><a href="#"><i class="icon-facebook"></i></a></li>
-						<li><a href="#"><i class="icon-youtube"></i></a></li>
-						<li><a href="#"><i class="icon-pinterest"></i></a></li>
-						<li><a href="#"><i class="icon-linkedin"></i></a></li>
-						<li><a href="#"><i class="icon-instagram"></i></a></li>
-						<li><a href="#"><i class="icon-dribbble"></i></a></li>
-					</ul>
+					<p class="copyright text-center">&copy; 2017 IFBA - Campus Porto Seguro. Alguns direitos reservados.</p>
+					<p class="copyright text-center">Site por <a href="https://github.com/guiscaranse">@guiscaranse</a></p>
 				</div>
 			</div>
 		</div>
