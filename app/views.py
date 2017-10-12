@@ -17,4 +17,5 @@ def hello():
                            manha_sex = teste.atividadesPorDia("27", "manha"),
                            noite_seg = teste.atividadesPorDia("23", "noite"),
                            noite_ter = teste.atividadesPorDia("24", "noite"),
-                           noite_quar = teste.atividadesPorDia("25", "noite"))
+                           noite_quar = teste.atividadesPorDia("25", "noite"),
+                           lista_ativ = sorted(teste.listaAtividades()))

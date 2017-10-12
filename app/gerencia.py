@@ -15,13 +15,23 @@ class Controle(object):
                     resposta.append([nome, row['Horário']])
         return resposta
     def listaAtividades(self):
-        self.dados = os.path.dirname(os.path.realpath(__file__)) + "/static/"+ turno +".csv"
+        dadosManha = os.path.dirname(os.path.realpath(__file__)) + "/static/manha.csv"
+        dadosNoite = os.path.dirname(os.path.realpath(__file__)) + "/static/noite.csv"
         resposta = []
-        with open(self.dados) as csvfile:
+        with open(dadosManha) as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                     nome = row['Nome']
                     if row['Nome'] == "":
                         nome = row['Código']
-                    resposta.append([row['Código'], nome])
+                    if "AP" not in row['Código']:
+                        resposta.append([row['Código'], nome])
+        with open(dadosNoite) as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                    nome = row['Nome']
+                    if row['Nome'] == "":
+                        nome = row['Código']
+                    if "AP" not in row['Código']:
+                        resposta.append([row['Código'], nome])
         return resposta
