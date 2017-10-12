@@ -1,5 +1,6 @@
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
+  $('#avisosModal').modal('show');
+  $('[data-toggle="tooltip"]').tooltip();
 })
 ;(function () {
 
