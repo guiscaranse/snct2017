@@ -14,3 +14,14 @@ class Controle(object):
                         nome = row['Código']
                     resposta.append([nome, row['Horário']])
         return resposta
+    def listaAtividades(self):
+        self.dados = os.path.dirname(os.path.realpath(__file__)) + "/static/"+ turno +".csv"
+        resposta = []
+        with open(self.dados) as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                    nome = row['Nome']
+                    if row['Nome'] == "":
+                        nome = row['Código']
+                    resposta.append([row['Código'], nome])
+        return resposta
