@@ -37,7 +37,32 @@
           <!-- Tab panes -->
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane" id="ter">
-              
+                <div class="agenda">
+                      <div class="table-responsive">
+                          <table class="table table-condensed table-bordered">
+                              <thead>
+                                  <tr>
+                                      <th>Horário</th>
+                                      <th>Evento</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                {% for item in manha_ter %}
+                                  <tr>
+                                    <td class="agenda-time">
+                                        {{item[1]}}
+                                    </td>
+                                    <td class="agenda-events">
+                                        <div class="agenda-event">
+                                            {{item[0]}}
+                                        </div>
+                                    </td>
+                                  </tr>
+                                {% endfor %}
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="quar">
               {% include "manha/quar.twig" %}
