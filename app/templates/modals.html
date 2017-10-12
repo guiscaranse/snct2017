@@ -1,0 +1,315 @@
+<!-- Inicio das inscrições -->
+<div class="modal fade" id="inscricoes" tabindex="-1" role="dialog" aria-labelledby="inscricoesLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="inscricoesLabel">Inscrições</h4>
+      </div>
+      <div class="modal-body">
+        <form action="/subscribe" method="post">
+          <div class="form-group">
+            <label>Nome completo</label>
+            <input type="text" class="form-control" name="name" placeholder="Nome completo" required>
+          </div>
+          <div class="form-group">
+            <label>Endereço de Email</label>
+            <input type="email" class="form-control" name="email" placeholder="Email" required>
+          </div>
+          <div class="form-group">
+            <label>CPF</label>
+            <input type="text" class="form-control" name="cpf" placeholder="CPF (Apenas números)" required>
+          </div>
+          <div class="form-group">
+            <label>Marque as atividades que você deseja participar</label>
+            <small>Segure CTRL para marcar</small>
+            <select multiple class="form-control" name="atividades">
+              {% for item in lista_ativ %}
+                <option>{{item[0]}} - {{item[1]}} | {{item[2]}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <br><br>
+          <div class="alert alert-danger" role="alert">Os minicursos tem vagas limitadas, se atente a dois fatores:<br>
+            <ul>
+              <li>Vagas limitadas (As inscrições aceitas serão publicadas)</li>
+              <li>Dados inválidos poderão anular seu certificado</li>
+              <li>Choque de horários (Serão considerados as entradas mais recentes em caso de choque de horários)</li>
+            </ul>
+          </div>
+          <div class="alert alert-info" role="alert">Você pode querer conferir <a href="https://docs.google.com/document/d/1uT8juU6We2J68dOaHJTUKqgzmE--3E3P7QLFuF16elA/edit?usp=sharing">esta tabela</a> para saber o que cada item se trata.</div>
+          <button type="submit" class="btn btn-default">Enviar</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Inicio da programação -->
+<div class="modal fade" id="programacao" tabindex="-1" role="dialog" aria-labelledby="programacaoLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="programacaoLabel">Programação</h4>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-warning" role="alert"><p><strong>Atenção!</strong> Segunda-feira é o dia de organização dos estandes.</p></div>
+        <div class="alert alert-info" role="alert">Do período de 24 a 27/10/2017 os estandes estarão funcionando todas as manhãs e também ocorrerá o Concurso da Ponte (manhã e noite) com premiação de R$500. <a href="https://drive.google.com/file/d/0B9O50TW-UmDPNTNIc2xhdGNXZU0/view?usp=sharing" target="_blank">Consulte o regulamento.</a></div>
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h4 class="panel-title">
+                <a class="collapsed"  style="text-decoration: none;" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Manhã
+                </a>
+              </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+              <div class="panel-body">
+                <div>
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation"><a href="#ter" aria-controls="profile" role="tab" data-toggle="tab">Terça (24/10)</a></li>
+                    <li role="presentation"><a href="#quar" aria-controls="messages" role="tab" data-toggle="tab">Quarta (25/10)</a></li>
+                    <li role="presentation"><a href="#quin" aria-controls="messages" role="tab" data-toggle="tab">Quinta (26/10)</a></li>
+                    <li role="presentation"><a href="#sex" aria-controls="settings" role="tab" data-toggle="tab">Sexta (27/10)</a></li>
+                  </ul>
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                      <div role="tabpanel" class="tab-pane" id="ter">
+                          <div class="agenda">
+                                <div class="table-responsive">
+                                    <table class="table table-condensed table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Horário</th>
+                                                <th>Evento</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                          {% for item in manha_ter %}
+                                            <tr>
+                                              <td class="agenda-time">
+                                                  {{item[1]}}
+                                              </td>
+                                              <td class="agenda-events">
+                                                  <div class="agenda-event">
+                                                      {{item[0]}}
+                                                  </div>
+                                              </td>
+                                            </tr>
+                                          {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="quar">
+                        <div class="agenda">
+                              <div class="table-responsive">
+                                  <table class="table table-condensed table-bordered">
+                                      <thead>
+                                          <tr>
+                                              <th>Horário</th>
+                                              <th>Evento</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                        {% for item in manha_quar %}
+                                          <tr>
+                                            <td class="agenda-time">
+                                                {{item[1]}}
+                                            </td>
+                                            <td class="agenda-events">
+                                                <div class="agenda-event">
+                                                    {{item[0]}}
+                                                </div>
+                                            </td>
+                                          </tr>
+                                        {% endfor %}
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="quin">
+                        <div class="agenda">
+                              <div class="table-responsive">
+                                  <table class="table table-condensed table-bordered">
+                                      <thead>
+                                          <tr>
+                                              <th>Horário</th>
+                                              <th>Evento</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                        {% for item in manha_qui %}
+                                          <tr>
+                                            <td class="agenda-time">
+                                                {{item[1]}}
+                                            </td>
+                                            <td class="agenda-events">
+                                                <div class="agenda-event">
+                                                    {{item[0]}}
+                                                </div>
+                                            </td>
+                                          </tr>
+                                        {% endfor %}
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="sex">
+                        <div class="agenda">
+                              <div class="table-responsive">
+                                  <table class="table table-condensed table-bordered">
+                                      <thead>
+                                          <tr>
+                                              <th>Horário</th>
+                                              <th>Evento</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                        {% for item in manha_sex %}
+                                          <tr>
+                                            <td class="agenda-time">
+                                                {{item[1]}}
+                                            </td>
+                                            <td class="agenda-events">
+                                                <div class="agenda-event">
+                                                    {{item[0]}}
+                                                </div>
+                                            </td>
+                                          </tr>
+                                        {% endfor %}
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div> <!-- fim do conteúdo -->
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo">
+              <h4 class="panel-title">
+                <a class="collapsed" style="text-decoration: none;" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Noite
+                </a>
+              </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+              <div class="panel-body">
+                <div>
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation"><a href="#segN" role="tab" data-toggle="tab">Segunda (23/10)</a></li>
+                    <li role="presentation"><a href="#terN" role="tab" data-toggle="tab">Terça (24/10)</a></li>
+                    <li role="presentation"><a href="#quarN" role="tab" data-toggle="tab">Quarta (25/10)</a></li>
+                  </ul>
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                      <div role="tabpanel" class="tab-pane" id="segN">
+                          <div class="agenda">
+                                <div class="table-responsive">
+                                    <table class="table table-condensed table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Horário</th>
+                                                <th>Evento</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                          {% for item in noite_seg %}
+                                            <tr>
+                                              <td class="agenda-time">
+                                                  {{item[1]}}
+                                              </td>
+                                              <td class="agenda-events">
+                                                  <div class="agenda-event">
+                                                      {{item[0]}}
+                                                  </div>
+                                              </td>
+                                            </tr>
+                                          {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="terN">
+                        <div class="agenda">
+                              <div class="table-responsive">
+                                  <table class="table table-condensed table-bordered">
+                                      <thead>
+                                          <tr>
+                                              <th>Horário</th>
+                                              <th>Evento</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                        {% for item in noite_ter %}
+                                          <tr>
+                                            <td class="agenda-time">
+                                                {{item[1]}}
+                                            </td>
+                                            <td class="agenda-events">
+                                                <div class="agenda-event">
+                                                    {{item[0]}}
+                                                </div>
+                                            </td>
+                                          </tr>
+                                        {% endfor %}
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="quarN">
+                        <div class="agenda">
+                              <div class="table-responsive">
+                                  <table class="table table-condensed table-bordered">
+                                      <thead>
+                                          <tr>
+                                              <th>Horário</th>
+                                              <th>Evento</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                        {% for item in noite_quar %}
+                                          <tr>
+                                            <td class="agenda-time">
+                                                {{item[1]}}
+                                            </td>
+                                            <td class="agenda-events">
+                                                <div class="agenda-event">
+                                                    {{item[0]}}
+                                                </div>
+                                            </td>
+                                          </tr>
+                                        {% endfor %}
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div> <!-- fim do conteúdo -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
