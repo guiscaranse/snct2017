@@ -2,6 +2,7 @@ import csv, os
 from flask import jsonify
 class Controle(object):
     dados = os.path.dirname(os.path.realpath(__file__)) + "/static/manha.csv"
+    inscritos = os.path.dirname(os.path.realpath(__file__)) + "/static/inscritos.csv"
     def atividadesPorDia(self, dia, turno):
         self.dados = os.path.dirname(os.path.realpath(__file__)) + "/static/"+ turno +".csv"
         resposta = []
@@ -25,7 +26,7 @@ class Controle(object):
                     if row['Nome'] == "":
                         nome = row['Código']
                     if "AP" not in row['Código']:
-                        resposta.append([row['Código'], nome])
+                        resposta.append([row['Código'], nome, row['Data'] + " (" + row['Horário'] + ")"])
         with open(dadosNoite) as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
@@ -33,5 +34,11 @@ class Controle(object):
                     if row['Nome'] == "":
                         nome = row['Código']
                     if "AP" not in row['Código']:
-                        resposta.append([row['Código'], nome])
+                        resposta.append([row['Código'], nome, row['Data'] + " (" + row['Horário'] + ")"])
         return resposta
+    def cadastra(self, nome, email, cpf, ativs):
+        with open(self.inscritos, 'a', newline='', encoding="utf-8") as f:
+            writer = csv.writer(f)
+            for x in ativs:
+                fields=[x, nome, cpf, email]
+                writer.writerow(fields)

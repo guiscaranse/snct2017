@@ -7,25 +7,25 @@
         <h4 class="modal-title" id="inscricoesLabel">Inscrições</h4>
       </div>
       <div class="modal-body">
-        <form action="/subscribe">
+        <form action="/subscribe" method="post">
           <div class="form-group">
             <label>Nome completo</label>
-            <input type="text" class="form-control" id="name" placeholder="Nome completo">
+            <input type="text" class="form-control" name="name" placeholder="Nome completo" required>
           </div>
           <div class="form-group">
             <label>Endereço de Email</label>
-            <input type="email" class="form-control" id="email" placeholder="Email">
+            <input type="email" class="form-control" name="email" placeholder="Email" required>
           </div>
           <div class="form-group">
             <label>CPF</label>
-            <input type="text" class="form-control" id="cpf" placeholder="CPF (Apenas números)">
+            <input type="text" class="form-control" name="cpf" placeholder="CPF (Apenas números)" required>
           </div>
           <div class="form-group">
             <label>Marque as atividades que você deseja participar</label>
             <small>Segure CTRL para marcar</small>
-            <select multiple class="form-control">
+            <select multiple class="form-control" name="atividades">
               {% for item in lista_ativ %}
-                <option>{{item[0]}} - {{item[1]}}</option>
+                <option>{{item[0]}} - {{item[1]}} | {{item[2]}}</option>
               {% endfor %}
             </select>
           </div>
