@@ -39,6 +39,9 @@ class Controle(object):
     def cadastra(self, nome, email, cpf, ativs):
         with open(self.inscritos, 'a', newline='', encoding="utf-8") as f:
             writer = csv.writer(f)
-            for x in ativs:
-                fields=[x, nome, cpf, email]
-                writer.writerow(fields)
+            if(len(ativs) > 0):
+                for x in ativs:
+                    fields=[x, nome, cpf, email]
+            else:
+                fields=["SEM ATIVIDADES", nome, cpf, email]        
+            writer.writerow(fields)
