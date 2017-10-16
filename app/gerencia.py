@@ -1,4 +1,4 @@
-import csv, os
+import csv, os, shutil, random, string
 from flask import jsonify
 class Controle(object):
     dados = os.path.dirname(os.path.realpath(__file__)) + "/static/manha.csv"
@@ -43,5 +43,26 @@ class Controle(object):
                 for x in ativs:
                     fields=[x, nome, cpf, email]
             else:
-                fields=["SEM ATIVIDADES", nome, cpf, email]        
+                fields=["SEM ATIVIDADES", nome, cpf, email]
             writer.writerow(fields)
+    def buscaAtividades(self, cpf):
+        dados = os.path.dirname(os.path.realpath(__file__)) + "/static/inscritos.csv"
+        resposta = []
+        with open(dados) as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                if cpf in str(row['CPF']):
+                    resposta.append(row['Atividade'])
+        return resposta
+    def deletaAtividades(self, cpf):
+        dados = os.path.dirname(os.path.realpath(__file__)) + "/static/inscritos.csv"
+        out = os.path.dirname(os.path.realpath(__file__)) + "/static/" + ''.join(random.choices(string.ascii_uppercase + string.digits, k=5)) + ".csv"
+        f = open(dados,"r+")
+        d = f.readlines()
+        f.seek(0)
+        for i in d:
+            print(i)
+            if str(cpf) not in i:
+                f.write(i)
+        f.truncate()
+        f.close()

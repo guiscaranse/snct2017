@@ -26,3 +26,14 @@ def subscribe():
     cpf = request.form.get('cpf')
     ctrl.cadastra(name, email, cpf, atividades)
     return render_template("subscribe.html")
+
+@app.route('/find', methods=["POST"])
+def find():
+    ctrl = gerencia.Controle()
+    cpf = request.form.get('cpf')
+    return render_template("find.html", busca = ctrl.buscaAtividades(cpf), cpf = cpf)
+@app.route('/deleta/<int:cpf>', methods=["GET"])
+def deleta(cpf):
+    ctrl = gerencia.Controle()
+    ctrl.deletaAtividades(cpf)
+    return render_template("deleta.html")
