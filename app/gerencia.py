@@ -42,9 +42,10 @@ class Controle(object):
             if(len(ativs) > 0):
                 for x in ativs:
                     fields=[x, nome, cpf, email]
+                    writer.writerow(fields)
             else:
                 fields=["SEM ATIVIDADES", nome, cpf, email]
-            writer.writerow(fields)
+                writer.writerow(fields)
     def buscaAtividades(self, cpf):
         dados = os.path.dirname(os.path.realpath(__file__)) + "/static/inscritos.csv"
         resposta = []
