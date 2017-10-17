@@ -1,14 +1,14 @@
 Código,Data,Horário,Responsável,Nome,Descrição,Público Alvo,Vagas,Local
 MC09,25/10,18:30 - 20:00,Aline M.Cruz,A internet como ferramenta de pesquisa técnico-científica,Orienta os estudantes na busca e na recuperação da informação técnico-científica na Internet.,Geral,30,Lab.Inf. 2
 PA06,25/10,18:30 - 20:00,"Almir Santos Junior
-Felipe da Conceição",Cultivo de Horta organica na escola: Harmonia com o meio Ambiente,,Geral,30,Sala 4
+Felipe da Conceição",Cultivo de Horta organica na escola,,Geral,30,Sala 4
 MC04,24/10,18:30 - 22:00,"Delivelton T.Rodrigues
-PROF.RESPONSÁVEL","Apresentação do ACLEMAC, Assistente para Criação de Listas de Exercícios Matemáticos Acessíveis aos Cegos",Apresenta as funcionalidades do software ACLEMAC que foi desenvolvido no Programa Institucional de Bolsa de Iniciação Científica (PIBIC) do IFBA Porto Seguro.,Estudantes e professores,20,Lab.Inf. 3
+PROF.RESPONSÁVEL",Apresentação do ACLEMAC,Apresenta as funcionalidades do software ACLEMAC que foi desenvolvido no Programa Institucional de Bolsa de Iniciação Científica (PIBIC) do IFBA Porto Seguro.,Estudantes e professores,20,Lab.Inf. 3
 MC05,24/10,18:30 - 22:00,"Marcionila A.dos P.A.Mota
 Jardel N.Dias",Tópicos de segurança no laboratório,Apresenta normas de segurança que devem ser tomadas ao frequentar o Laboratório de Química.,Estudantes,20,Lab.Quim.10
 MC10,25/10,18:30 - 22:00,"Roberto P.Teixeira
 Leonardo B.Barcelos",Inteligência Artificial com Química,Demonstra como funciona o sistema IAQ – Inteligência Artificial com a Química.,Estudantes,20,Lab.Inf. 4
-OF04,24/10,18:30 - 22:00,Verônica de S.Santos,Trajetória acadêmica: criação e preenchimento de currículos e carta de apresentação,"Cria/ preenche o currículo na Plataforma Lattes; Entende a importância do registro da trajetória acadêmica, bem como a organização de tais dados; Entende quais documentos perfazem a trajetória acadêmica, os gêneros e organiza documentação que se direciona a este ciclo; Produz sua própria carta de apresentação.
+OF04,24/10,18:30 - 22:00,Verônica de S.Santos,Criação e preenchimento de currículos e carta de apresentação,"Cria/ preenche o currículo na Plataforma Lattes; Entende a importância do registro da trajetória acadêmica, bem como a organização de tais dados; Entende quais documentos perfazem a trajetória acadêmica, os gêneros e organiza documentação que se direciona a este ciclo; Produz sua própria carta de apresentação.
 Requisitos: certificados, declarações ou outros documentos que perfazem a vida acadêmica e pasta com folhas divisórias plásticas ou classificador arquivo para a seção de organização documental.",Estudantes,20,Lab.Inf. 4
 OF05,24/10,18:30 - 22:00,"Leonardo B.Barcelos
 Peterson R.de Assis",Matemática Computacional: Desenvolvendo Jogos,"Compreende os processos matemáticos relacionados com a computação no processo de
@@ -24,8 +24,7 @@ MC01,23/10,19:30 - 21:00,Aline M.Cruz,Normalização de Trabalhos Acadêmicos: P
 MC02,23/10,19:30 - 21:00,Mirella Patrícia C.Lima,TOEFL test preparation,Apresenta ferramentas de preparação para o TOEFL.,Estudantes,20,Sala 3
 MC03,23/10,19:30 - 21:00,"Izanderson de A.Santana
 Jorge de F.Souza
-Gildeison Antonis V.Santana
-PROF.RESPONSÁVEL",Logaritmo,Demonstra as aplicações de logaritmo no dia a dia do aluno.,Estudantes,15,Sala 4
+Gildeison Antonis V.Santana",Logaritmo,Demonstra as aplicações de logaritmo no dia a dia do aluno.,Estudantes,15,Sala 4
 PA01,23/10,19:30 - 21:00,"Roberto Teixeira
 Helder Tanaka",Relatos de experiência: IFBA sem fronteiras,,Estudantes,30,Sala 18
 MC06,24/10,20:30 - 22:00,"Rayana R.Bonfati
