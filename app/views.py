@@ -43,7 +43,7 @@ def deleta(cpf, cod):
     ctrl.deletaAtividades(cpf, cod)
     return render_template("deleta.html", cod = cod)
 @app.route('/deleta/duplicatas', methods=["GET"])
-def deleta(c):
+def deleta_dupli():
     ctrl = gerencia.Controle()
     ctrl.removeDuplicatas()
     return render_template("deleta.html", cod = "DUPLICATAS")
