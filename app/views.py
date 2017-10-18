@@ -26,8 +26,8 @@ def subscribe():
     cpf = request.form.get('cpf')
     error = [False, ""]
     try:
+        ctrl.deletaTodasAtividades(cpf)
         ctrl.cadastra(name, email, cpf, atividades)
-
     except Exception as e:
         error[0], error[1] = True, str(e)
     return render_template("subscribe.html", error = error)

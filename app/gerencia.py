@@ -75,6 +75,18 @@ class Controle(object):
                 f.write(i)
         f.truncate()
         f.close()
+    def deletaTodasAtividades(self, cpf):
+        dados = os.path.dirname(os.path.realpath(__file__)) + "/static/inscritos.csv"
+        out = os.path.dirname(os.path.realpath(__file__)) + "/static/" + ''.join(random.choices(string.ascii_uppercase + string.digits, k=5)) + ".csv"
+        f = open(dados,"r+", encoding="utf8")
+        d = f.readlines()
+        f.seek(0)
+        for i in d:
+            print(i)
+            if str(cpf) not in i:
+                f.write(i)
+        f.truncate()
+        f.close()
     def checaVagas(self, cod):
         self.dados = os.path.dirname(os.path.realpath(__file__)) + "/static/inscritos.csv"
         relacao = []
