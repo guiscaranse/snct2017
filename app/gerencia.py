@@ -154,8 +154,6 @@ class Controle(object):
                         if ativ[0] in row['Atividade']:
                             if len(ins)+1 < vagas_disp:
                                 ins.append(row['CPF'])
-        print(ins)
-        print(cpf)
         if(cpf in ins):
             return True
         else:
