@@ -28,8 +28,8 @@ def subscribe():
     try:
         ctrl.cadastra(name, email, cpf, atividades)
 
-    except(Exception, e):
-        error[0], error[1] = True, e
+    except Exception as e:
+        error[0], error[1] = True, str(e)
     return render_template("subscribe.html", error = error)
 
 @app.route('/find', methods=["POST"])

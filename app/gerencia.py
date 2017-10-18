@@ -76,6 +76,7 @@ class Controle(object):
         f.truncate()
         f.close()
     def checaVagas(self, cod):
+        self.dados = os.path.dirname(os.path.realpath(__file__)) + "/static/inscritos.csv"
         relacao = []
         with open(self.manha, encoding="utf8") as csvfile:
             reader = csv.DictReader(csvfile)
@@ -89,7 +90,7 @@ class Controle(object):
                     codigo = row['Código']
                     vaga = row['Vagas']
                     relacao.append([codigo, vaga])
-        with open(dados, encoding="utf8") as csvfile:
+        with open(self.dados, encoding="utf8") as csvfile:
             reader = csv.DictReader(csvfile)
             for ativ in relacao:
                 if str(ativ[0]) == str(cod):
@@ -100,7 +101,7 @@ class Controle(object):
                     esgotou = False
                     for row in reader:
                         if ativ[0] in row['Atividade']:
-                            if len(ins) < vagas_disp:
+                            if len(ins)+1 < vagas_disp:
                                 ins.append([row['Nome'], row['Email\\n']])
                             else:
                                 esgotou = True
