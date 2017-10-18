@@ -106,7 +106,10 @@ class Controle(object):
             reader = csv.DictReader(csvfile)
             for ativ in relacao:
                 if str(ativ[0]) == str(cod):
-                    vagas_disp = int(ativ[1])
+                    if str(ativ[1]) == "":
+                        vagas_disp = 999999999999999
+                    else:
+                        vagas_disp = int(ativ[1])
                     ins = []
                     esgotou = False
                     for row in reader:
@@ -146,9 +149,10 @@ class Controle(object):
             reader = csv.DictReader(csvfile)
             for ativ in relacao:
                 if str(ativ[0]) == str(cod):
-                    print(ativ)
-                    print(ativ[1])
-                    vagas_disp = int(ativ[1])
+                    if str(ativ[1]) == "":
+                        vagas_disp = 999999999999999
+                    else:
+                        vagas_disp = int(ativ[1])
                     esgotou = False
                     for row in reader:
                         if ativ[0] in row['Atividade']:
