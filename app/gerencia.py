@@ -5,6 +5,13 @@ class Controle(object):
     manha = os.path.dirname(os.path.realpath(__file__)) + "/static/manha.csv"
     noite = os.path.dirname(os.path.realpath(__file__)) + "/static/noite.csv"
     inscritos = os.path.dirname(os.path.realpath(__file__)) + "/static/inscritos.csv"
+    def verificaCadastro(self, cpf, cod):
+        self.dados = os.path.dirname(os.path.realpath(__file__)) + "/static/inscritos.csv"
+        with open(self.dados, encoding="utf8") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                if cod in row['Atividade'] and cpf in row['CPF']:
+                    raise Exception("já está cadastrado em " + row['Atividade'])
     def atividadesPorDia(self, dia, turno):
         self.dados = os.path.dirname(os.path.realpath(__file__)) + "/static/"+ turno +".csv"
         resposta = []

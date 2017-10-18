@@ -26,7 +26,8 @@ def subscribe():
     cpf = request.form.get('cpf')
     error = [False, ""]
     try:
-        ctrl.deletaTodasAtividades(cpf)
+        for a in atividades:
+            ctrl.verificaCadastro(cpf, a[:4])
         ctrl.cadastra(name, email, cpf, atividades)
     except Exception as e:
         error[0], error[1] = True, str(e)
