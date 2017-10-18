@@ -6,7 +6,7 @@ class Controle(object):
     def atividadesPorDia(self, dia, turno):
         self.dados = os.path.dirname(os.path.realpath(__file__)) + "/static/"+ turno +".csv"
         resposta = []
-        with open(self.dados) as csvfile:
+        with open(self.dados, encoding="utf8") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 if dia in str(row['Data']):
@@ -19,7 +19,7 @@ class Controle(object):
         dadosManha = os.path.dirname(os.path.realpath(__file__)) + "/static/manha.csv"
         dadosNoite = os.path.dirname(os.path.realpath(__file__)) + "/static/noite.csv"
         resposta = []
-        with open(dadosManha) as csvfile:
+        with open(dadosManha, encoding="utf8") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                     nome = row['Nome']
@@ -27,7 +27,7 @@ class Controle(object):
                         nome = row['Código']
                     if "AP" not in row['Código']:
                         resposta.append([row['Código'], nome, row['Data'] + " (" + row['Horário'] + ")"])
-        with open(dadosNoite) as csvfile:
+        with open(dadosNoite, encoding="utf8") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                     nome = row['Nome']
@@ -37,7 +37,7 @@ class Controle(object):
                         resposta.append([row['Código'], nome, row['Data'] + " (" + row['Horário'] + ")"])
         return resposta
     def cadastra(self, nome, email, cpf, ativs):
-        with open(self.inscritos, 'a', newline='', encoding="utf-8") as f:
+        with open(self.inscritos, 'a', newline='', encoding="utf8") as f:
             writer = csv.writer(f)
             if(len(ativs) > 0):
                 for x in ativs:
@@ -49,7 +49,7 @@ class Controle(object):
     def buscaAtividades(self, cpf):
         dados = os.path.dirname(os.path.realpath(__file__)) + "/static/inscritos.csv"
         resposta = []
-        with open(dados) as csvfile:
+        with open(dados, encoding="utf8") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 if cpf in str(row['CPF']):
@@ -58,7 +58,7 @@ class Controle(object):
     def deletaAtividades(self, cpf):
         dados = os.path.dirname(os.path.realpath(__file__)) + "/static/inscritos.csv"
         out = os.path.dirname(os.path.realpath(__file__)) + "/static/" + ''.join(random.choices(string.ascii_uppercase + string.digits, k=5)) + ".csv"
-        f = open(dados,"r+")
+        f = open(dados,"r+", encoding="utf8")
         d = f.readlines()
         f.seek(0)
         for i in d:
