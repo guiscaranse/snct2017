@@ -106,3 +106,13 @@ class Controle(object):
                             else:
                                 esgotou = True
             return esgotou
+    def removeDuplicatas(self):
+        lines_seen = set()
+        nova = os.path.dirname(os.path.realpath(__file__)) + "/nova.csv"
+        outfile = open(nova, "w", encoding="utf8")
+        for line in open(self.inscritos, "r", encoding="utf8"):
+            if line not in lines_seen:
+                outfile.write(line)
+                lines_seen.add(line)
+        outfile.close()
+        shutil.move(nova, dados)
