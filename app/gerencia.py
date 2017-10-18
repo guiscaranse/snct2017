@@ -115,4 +115,4 @@ class Controle(object):
                 outfile.write(line)
                 lines_seen.add(line)
         outfile.close()
-        shutil.move(nova, self.dados)
+        shutil.move(nova, self.inscritos)
