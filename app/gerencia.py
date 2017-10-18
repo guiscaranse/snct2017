@@ -53,7 +53,7 @@ class Controle(object):
                 fields=["SEM ATIVIDADES", nome, cpf, email]
                 writer.writerow(fields)
             if(len(erros) > 0):
-                raise Exception("As seguintes atividades estão esgotadas: " + str(erros))
+                raise Exception("As seguintes atividades estão com vagas esgotadas: " + str(erros))
     def buscaAtividades(self, cpf):
         dados = os.path.dirname(os.path.realpath(__file__)) + "/static/inscritos.csv"
         resposta = []
