@@ -31,14 +31,11 @@
         <h4 class="modal-title" id="avisosModalLabel">Avisos</h4>
       </div>
       <div class="modal-body">
-        <div class="alert alert-warning" role="alert">A atividade <strong>Tópicos de Segurança no laboratório</strong> necessita que o participante esteja de calça jeans e sapato fechado.</div>
-        <div class="alert alert-info" role="alert">As inscrições para o concurso da ponte serão feitas por email e devem ser encaminhadas para <a href="mailto:arirocha16@gmail.com" target="_blank">arirocha16@gmail.com</a>. É necessário enviar:
-          <ul>
-            <li>Nome dos participantes</li>
-            <li>Matrícula</li>
-            <li>Email para contato</li>
-          </ul>
-          Consulte o regulamento na área "Programação"
+        <div class="alert alert-warning" role="alert">Os participantes do Minicurso MC05 - Tópicos de Segurança no Laboratório <strong>devem usar calça jeans e sapato fechado</strong>.</div>
+        <div class="alert alert-info" role="alert">
+          O Concurso da Ponte, ocorrerá entre os dias 24 e 27/10/2017, nos turnos matutino e noturno, terá premiação de <strong>R$ 500,00</strong>.<br>
+          As <strong>Fichas de Inscrição</strong> e as <strong>Declarações de Matrículas</strong> deverão ser enviadas para o email <a href="mailto:arirocha16@gmail.com">arirocha16@gmail.com</a> para a efetivação da inscrição.<br>
+          <br><a href="https://drive.google.com/file/d/0B9O50TW-UmDPNTNIc2xhdGNXZU0/view?usp=sharing" target="_blank">Consulte o Regulamento.
         </div>
       </div>
       <div class="modal-footer">
@@ -70,8 +67,8 @@
             <input type="text" class="form-control" name="cpf" placeholder="CPF (Apenas números)" required>
           </div>
           <div class="form-group">
-            <label>Marque as atividades que você deseja participar</label>
-            <small>Segure CTRL para marcar</small>
+            <label>Marque as atividades que deseja participar</label>
+            <small>(Para marcar segure CTRL)</small>
             <select multiple class="form-control" name="atividades">
               {% for item in lista_ativ %}
                 <option>{{item[0]}} - {{item[1]}} | {{item[2]}}</option>
@@ -79,14 +76,15 @@
             </select>
           </div>
           <br>
-          <div class="alert alert-danger" role="alert">As atividades tem vagas limitadas, se atente a dois fatores:<br>
+          <div class="alert alert-danger" role="alert"><strong>Atenção:</strong><br>
             <ul>
-              <li>Vagas limitadas (As inscrições aceitas serão publicadas)</li>
-              <li>Dados inválidos poderão anular seu certificado</li>
-              <li>Choque de horários (Serão considerados as entradas mais recentes em caso de choque de horários)</li>
+              <li>As atividades têm vagas limitadas.</li>
+              <li>As inscrições deferidas serão divulgadas.</li>
+              <li>Dados inválidos anularão seu certificado.</li>
+              <li>Será considerada a inscrição mais recentes em caso de choque de horários.</li>
             </ul>
           </div>
-          <div class="alert alert-info" role="alert">Confira <a href="https://drive.google.com/open?id=0B9O50TW-UmDPZnBTbVpKNGNqWEoxby1CSG1YR2l0RUhSR0Zj" target="_blank">esta tabela</a> para mais detalhes de cada atividade ou consulte disponibilidade de vagas. E <a href="https://drive.google.com/file/d/0B9O50TW-UmDPY2NVYllvcUoxeXhJcVpfaWI5UDZ4bjFLOGJv/view?usp=sharing" target="_blank">esta tabela</a> para a a programação completa.</div>
+          <div class="alert alert-info" role="alert">Qualquer dúvida relacionada aos códigos ou dias/ horários das atividades consultar a <a href="https://docs.google.com/spreadsheets/d/1uuUWsVcOvFKtBc6rHP52cHtlcA5ZZVNpYRjhJ7eYGwM/edit#gid=0" target="_blank">Relação de Atividades</a> e/ou a <a href="https://docs.google.com/spreadsheets/d/1uuUWsVcOvFKtBc6rHP52cHtlcA5ZZVNpYRjhJ7eYGwM/edit#gid=687761341" target="_blank">Programação</a>.</div>
           <button type="submit" class="btn btn-default">Enviar</button>
         </form>
       </div>
