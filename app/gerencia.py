@@ -2,6 +2,8 @@ import csv, os, shutil, random, string
 from flask import jsonify
 class Controle(object):
     dados = os.path.dirname(os.path.realpath(__file__)) + "/static/manha.csv"
+    manha = os.path.dirname(os.path.realpath(__file__)) + "/static/manha.csv"
+    noite = os.path.dirname(os.path.realpath(__file__)) + "/static/noite.csv"
     inscritos = os.path.dirname(os.path.realpath(__file__)) + "/static/inscritos.csv"
     def atividadesPorDia(self, dia, turno):
         self.dados = os.path.dirname(os.path.realpath(__file__)) + "/static/"+ turno +".csv"
@@ -38,14 +40,20 @@ class Controle(object):
         return resposta
     def cadastra(self, nome, email, cpf, ativs):
         with open(self.inscritos, 'a', newline='', encoding="utf8") as f:
+            erros = []
             writer = csv.writer(f)
             if(len(ativs) > 0):
                 for x in ativs:
-                    fields=[x, nome, cpf, email]
-                    writer.writerow(fields)
+                    if not self.checaVagas(x[:4]):
+                        fields=[x, nome, cpf, email]
+                        writer.writerow(fields)
+                    else:
+                        erros.append(x[:4])
             else:
                 fields=["SEM ATIVIDADES", nome, cpf, email]
                 writer.writerow(fields)
+            if(len(erros) > 0):
+                raise Exception("As seguintes atividades estão esgotadas: " + str(erros))
     def buscaAtividades(self, cpf):
         dados = os.path.dirname(os.path.realpath(__file__)) + "/static/inscritos.csv"
         resposta = []
@@ -67,3 +75,33 @@ class Controle(object):
                 f.write(i)
         f.truncate()
         f.close()
+    def checaVagas(self, cod):
+        relacao = []
+        with open(self.manha, encoding="utf8") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                    codigo = row['Código']
+                    vaga = row['Vagas']
+                    relacao.append([codigo, vaga])
+        with open(self.noite, encoding="utf8") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                    codigo = row['Código']
+                    vaga = row['Vagas']
+                    relacao.append([codigo, vaga])
+        with open(dados, encoding="utf8") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for ativ in relacao:
+                if str(ativ[0]) == str(cod):
+                    print(ativ)
+                    print(ativ[1])
+                    vagas_disp = int(ativ[1])
+                    ins = []
+                    esgotou = False
+                    for row in reader:
+                        if ativ[0] in row['Atividade']:
+                            if len(ins) < vagas_disp:
+                                ins.append([row['Nome'], row['Email\\n']])
+                            else:
+                                esgotou = True
+            return esgotou

@@ -37,7 +37,11 @@
     <!-- Begin page content -->
     <div class="container">
       <br><br><br><br><br><br><br><br>
+      {% if error[0] %}
+      <div class="alert alert-danger" role="alert">Não foi possível realizar a inscrição, {{error[1]}}
+      {% else %}
       <div class="alert alert-success" role="alert">Inscrição realizada com sucesso! Caso queira, volte ao formulário e inscreva-se em outras atividades.
+      {% endif %}
       <br><br><a href="/" class="btn btn-primary" role="button">Voltar</a>
       </div>
     </div>

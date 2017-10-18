@@ -24,8 +24,13 @@ def subscribe():
     name = request.form.get('name')
     atividades = request.form.getlist('atividades')
     cpf = request.form.get('cpf')
-    ctrl.cadastra(name, email, cpf, atividades)
-    return render_template("subscribe.html")
+    error = [False, ""]
+    try:
+        ctrl.cadastra(name, email, cpf, atividades)
+
+    except(Exception, e):
+        error[0], error[1] = True, e
+    return render_template("subscribe.html", error = error)
 
 @app.route('/find', methods=["POST"])
 def find():
