@@ -36,7 +36,12 @@ def subscribe():
 def find():
     ctrl = gerencia.Controle()
     cpf = request.form.get('cpf')
-    return render_template("find.html", busca = ctrl.buscaAtividades(cpf), cpf = cpf)
+    aprovadas = []
+    ativs = ctrl.buscaAtividades(cpf)
+    for a in ativs:
+        if(ctrl.checaCadastro(a[:4], cpf)):
+            aprovadas.append(a[:4])
+    return render_template("find.html", busca = ctrl.buscaAtividades(cpf), cpf = cpf, aprovadas = aprovadas)
 @app.route('/deleta/<cpf>/<cod>', methods=["GET"])
 def deleta(cpf, cod):
     ctrl = gerencia.Controle()

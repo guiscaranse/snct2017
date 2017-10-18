@@ -106,8 +106,6 @@ class Controle(object):
             reader = csv.DictReader(csvfile)
             for ativ in relacao:
                 if str(ativ[0]) == str(cod):
-                    print(ativ)
-                    print(ativ[1])
                     vagas_disp = int(ativ[1])
                     ins = []
                     esgotou = False
@@ -128,3 +126,37 @@ class Controle(object):
                 lines_seen.add(line)
         outfile.close()
         shutil.move(nova, self.inscritos)
+    def checaCadastro(self, cod, cpf):
+        self.dados = os.path.dirname(os.path.realpath(__file__)) + "/static/inscritos.csv"
+        relacao = []
+        ins = []
+        with open(self.manha, encoding="utf8") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                    codigo = row['Código']
+                    vaga = row['Vagas']
+                    relacao.append([codigo, vaga])
+        with open(self.noite, encoding="utf8") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                    codigo = row['Código']
+                    vaga = row['Vagas']
+                    relacao.append([codigo, vaga])
+        with open(self.dados, encoding="utf8") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for ativ in relacao:
+                if str(ativ[0]) == str(cod):
+                    print(ativ)
+                    print(ativ[1])
+                    vagas_disp = int(ativ[1])
+                    esgotou = False
+                    for row in reader:
+                        if ativ[0] in row['Atividade']:
+                            if len(ins)+1 < vagas_disp:
+                                ins.append(row['CPF'])
+        print(ins)
+        print(cpf)
+        if(cpf in ins):
+            return True
+        else:
+            return False

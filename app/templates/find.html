@@ -12,16 +12,7 @@
     <meta name="author" content="Guilherme Scaranse" />
 
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
-
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="/vendor/css/animate.css">
-    <!-- Icomoon Icon Fonts-->
-    <link rel="stylesheet" href="/vendor/css/icomoon.css">
-    <!-- Simple Line Icons -->
-    <link rel="stylesheet" href="/vendor/css/simple-line-icons.css">
-    <!-- Owl Carousel -->
-    <link rel="stylesheet" href="/vendor/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/vendor/css/owl.theme.default.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!-- Bootstrap  -->
     <link rel="stylesheet" href="/vendor/css/bootstrap.css">
 
@@ -69,6 +60,7 @@
                 <thead>
                   <tr>
                     <th>Atividade(s) para {{cpf}}</th>
+                    <th>Situação</th>
                     <th>Opções</th>
                   </tr>
                 </thead>
@@ -76,6 +68,11 @@
                   {% for item in busca %}
                   <tr>
                     <td>{{item}}</td>
+                    {% if item[:4] in aprovadas %}
+                    <td><span class="label label-success">Aprovada</span></td>
+                    {% else %}
+                    <td><span class="label label-warning">Em espera</span></td>
+                    {% endif %}
                     <td><a href="deleta/{{cpf}}/{{item[:4]}}">Deletar</a></td>
                   </tr>
                   {% endfor %}
