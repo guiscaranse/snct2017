@@ -37,8 +37,8 @@ def find():
     ctrl = gerencia.Controle()
     cpf = request.form.get('cpf')
     return render_template("find.html", busca = ctrl.buscaAtividades(cpf), cpf = cpf)
-@app.route('/deleta/<int:cpf>', methods=["GET"])
-def deleta(cpf):
+@app.route('/deleta/<cpf>/<cod>', methods=["GET"])
+def deleta(cpf, cod):
     ctrl = gerencia.Controle()
-    ctrl.deletaAtividades(cpf)
-    return render_template("deleta.html")
+    ctrl.deletaAtividades(cpf, cod)
+    return render_template("deleta.html", cod = cod)

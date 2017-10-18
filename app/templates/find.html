@@ -66,16 +66,17 @@
             <div class="table-responsive">
               {% if busca is defined and busca|length > 0 %}
               <table class="table table-bordered table-hover">
-                <caption class="text-center">Se você deseja cancelar sua inscrição para refazê-la em outro momento, <a href="deleta/{{cpf}}">clique aqui</a></caption>
                 <thead>
                   <tr>
                     <th>Atividade(s) para {{cpf}}</th>
+                    <th>Opções</th>
                   </tr>
                 </thead>
                 <tbody>
                   {% for item in busca %}
                   <tr>
                     <td>{{item}}</td>
+                    <td><a href="deleta/{{cpf}}/{{item[:4]}}">Deletar</a></td>
                   </tr>
                   {% endfor %}
 
