@@ -1,4 +1,4 @@
-import csv, os, shutil, random, string
+import csv, os, shutil, random, string, re
 from flask import jsonify
 class Controle(object):
     dados = os.path.dirname(os.path.realpath(__file__)) + "/static/manha.csv"
@@ -77,8 +77,10 @@ class Controle(object):
         d = f.readlines()
         f.seek(0)
         for i in d:
-            print(i)
-            if str(cpf) not in i and str(cod) not in i:
+            if cpf in i:
+                if cod not in i:
+                    f.write(i)
+            else:
                 f.write(i)
         f.truncate()
         f.close()
