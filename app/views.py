@@ -53,3 +53,7 @@ def deleta_dupli():
     ctrl = gerencia.Controle()
     ctrl.removeDuplicatas()
     return render_template("deleta.html", cod = "DUPLICATAS")
+@app.route('/lista/<cod>', methods=["GET"])
+def lista(cod):
+    ctrl = gerencia.Controle()
+    return render_template("lista.html", cod = cod, nome = ctrl.getNome(cod), inscritos = ctrl.listaInscritos(cod))

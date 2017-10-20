@@ -171,3 +171,54 @@ class Controle(object):
             return True
         else:
             return False
+    def listaInscritos(self, cod):
+        self.dados = os.path.dirname(os.path.realpath(__file__)) + "/static/inscritos.csv"
+        relacao = []
+        ins = []
+        with open(self.manha, encoding="utf8") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                    codigo = row['Código']
+                    vaga = row['Vagas']
+                    relacao.append([codigo, vaga])
+        with open(self.noite, encoding="utf8") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                    codigo = row['Código']
+                    vaga = row['Vagas']
+                    relacao.append([codigo, vaga])
+        with open(self.dados, encoding="utf8") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for ativ in relacao:
+                if str(ativ[0]) == str(cod):
+                    if str(ativ[1]) == "":
+                        vagas_disp = 999999999999999
+                    else:
+                        vagas_disp = int(ativ[1])
+                    esgotou = False
+                    for row in reader:
+                        if ativ[0] in row['Atividade']:
+                            if len(ins)+1 < vagas_disp + 3:
+                                ins.append([row['Nome'], row['Email\\n']])
+            return ins
+    def getNome(self, cod):
+        self.dados = os.path.dirname(os.path.realpath(__file__)) + "/static/inscritos.csv"
+        relacao = []
+        nome = ""
+        with open(self.manha, encoding="utf8") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                    codigo = row['Código']
+                    vaga = row['Vagas']
+                    nome = row['Nome']
+                    relacao.append([codigo, vaga, nome])
+        with open(self.noite, encoding="utf8") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                    codigo = row['Código']
+                    nome = row['Nome']
+                    relacao.append([codigo, vaga, nome])
+        for ativ in relacao:
+            if str(ativ[0]) == str(cod):
+                nome = ativ[2]
+        return nome
