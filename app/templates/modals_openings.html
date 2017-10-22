@@ -53,14 +53,35 @@
         <h4 class="modal-title" id="inscricoesLabel">Inscrições</h4>
       </div>
       <div class="modal-body">
-        <form action="/lista" method="post">
+        <form action="/subscribe" method="post">
           <div class="form-group">
-            <label>Marque a atividade que deseja emitir lista de presença</label>
-            <select class="form-control" name="atividades">
+            <label>Nome completo</label>
+            <input type="text" class="form-control" name="name" placeholder="Nome completo" required>
+          </div>
+          <div class="form-group">
+            <label>Endereço de Email</label>
+            <input type="email" class="form-control" name="email" placeholder="Email" required>
+          </div>
+          <div class="form-group">
+            <label>CPF</label>
+            <input type="number" class="form-control" name="cpf" placeholder="CPF (Apenas números)" required>
+          </div>
+          <div class="form-group">
+            <label>Marque as atividades que deseja participar</label>
+            <small>(Para marcar segure CTRL)</small>
+            <select multiple class="form-control" name="atividades">
               {% for item in lista_ativ %}
                 <option>{{item[0]}} - {{item[1]}} | {{item[2]}}</option>
               {% endfor %}
             </select>
+          </div>
+          <br>
+          <div class="alert alert-danger" role="alert"><strong>Atenção:</strong><br>
+            <ul>
+              <li>As atividades têm vagas limitadas.</li>
+              <li>Dados inválidos anularão seu certificado.</li>
+              <li>Será considerada a inscrição mais recentes em caso de choque de horários.</li>
+            </ul>
           </div>
           <div class="alert alert-info" role="alert">Qualquer dúvida relacionada aos códigos ou dias/ horários das atividades consultar a <a href="https://docs.google.com/spreadsheets/d/1uuUWsVcOvFKtBc6rHP52cHtlcA5ZZVNpYRjhJ7eYGwM/edit#gid=0" target="_blank">Relação de Atividades</a> e/ou a <a href="https://docs.google.com/spreadsheets/d/1uuUWsVcOvFKtBc6rHP52cHtlcA5ZZVNpYRjhJ7eYGwM/edit#gid=687761341" target="_blank">Programação</a>.</div>
           <button type="submit" class="btn btn-default">Enviar</button>
