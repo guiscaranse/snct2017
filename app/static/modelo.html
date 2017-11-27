@@ -11,23 +11,27 @@ body, html {
 }
 
 .bg {
-    /* The image used */
     background:url("modelo.svg") no-repeat;
     background-size: 100% 100%;
-
-    /* Full height */
     height: 100%;
 
-    /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
+}
+canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 800px;
 }
 </style>
 </head>
 <body>
 
 <div class="bg"></div>
-<div id="cc"></div>
+<div class="center" id="cc"></div>
 </body>
 <script>
 $(document).ready(function() {
@@ -35,14 +39,13 @@ $(document).ready(function() {
     onrendered: function(canvas) {
       $(".bg").hide();
       $("#cc").append(canvas);
-      console.log(canvas.toDataURL());
-      var imgData = canvas.toDataURL(
-          'image/png');
-      var doc = new jsPDF('p', 'mm');
-      doc.addImage(imgData, 'PNG', 10, 10);
-      doc.save('sample-file.pdf');
+      $('canvas').attr('id', 'canvasCert');
+      $("#canvasCert").height(600);
+      $("#canvasCert").width(800);
+      window.print();
     }
   });
+  close();
 });
 </script>
 </html>

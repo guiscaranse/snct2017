@@ -1,14 +1,14 @@
 from functools import wraps
 from app import app, gerencia
-import random, string, sys
-from flask import url_for, render_template, request, Response
+import random, string, sys, os
+import codecs
+from flask import url_for, render_template, request, Response, make_response
 '''
 Routes
 '''
 @app.route('/', methods=['GET'])
 def hello():
     teste = gerencia.Controle()
-    teste.geraArquivosCertificados()
     return render_template("index.html",
                             lista_ativ = sorted(teste.listaAtividades()),
                             nomes_certi = sorted(teste.buscaCertDisponiveisPorInscrito()))
@@ -61,4 +61,18 @@ def lista_uni():
 def certificados():
     ctrl = gerencia.Controle()
     nome = request.form.get('nome')
-    return render_template("lista.html")
+    return render_template("certificados.html", certi = ctrl.buscaCertDisponiveisPorNome(nome))
+@app.route('/certificados/<cod>', methods=["GET"])
+def certificados_cod(cod):
+    cert_folder = os.path.dirname(os.path.realpath(__file__)) + "/static/vendor/certificados/"
+    response = make_response()
+    if "svg" not in cod:
+        data = cert_folder + cod + ".html"
+        response.headers['Content-type'] = 'text/html'
+    else:
+        data = cert_folder + cod
+        response.headers['Content-type'] = 'image/svg+xml'
+    file_data = codecs.open(data, 'rb').read()
+
+    response.data = file_data
+    return response

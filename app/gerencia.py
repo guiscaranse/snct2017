@@ -1,6 +1,7 @@
-import csv, os, shutil, random, string, re, hashlib
+import csv, os, shutil, random, string, hashlib
 import pdfkit
-from flask import jsonify
+
+
 class Controle(object):
     dados = os.path.dirname(os.path.realpath(__file__)) + "/static/manha.csv"
     manha = os.path.dirname(os.path.realpath(__file__)) + "/static/manha.csv"
@@ -202,6 +203,7 @@ class Controle(object):
                             if len(ins)+1 < vagas_disp + 3:
                                 ins.append([row['Nome'], row['Email\\n']])
             return ins
+
     def getNome(self, cod):
         self.dados = os.path.dirname(os.path.realpath(__file__)) + "/static/inscritos.csv"
         relacao = []
@@ -223,15 +225,6 @@ class Controle(object):
             if str(ativ[0]) == str(cod):
                 nome = ativ[2]
         return nome
-    def buscaCertificadosPorNome(self, nome):
-        dados = os.path.dirname(os.path.realpath(__file__)) + "/static/certificados.csv"
-        resposta = []
-        with open(dados, encoding="utf8") as csvfile:
-            reader = csv.DictReader(csvfile)
-            for row in reader:
-                if nome in str(row['Nome']):
-                    resposta.append(row['Atividade'])
-        return resposta
     def buscaCertDisponiveisPorInscrito(self):
         dados = os.path.dirname(os.path.realpath(__file__)) + "/static/certificados.csv"
         resposta = []
@@ -241,43 +234,43 @@ class Controle(object):
                 if str(row['Nome']) not in resposta:
                     resposta.append(row['Nome'])
         return resposta
+    def buscaCertDisponiveisPorNome(self, nome):
+        dados = os.path.dirname(os.path.realpath(__file__)) + "/static/certificados.csv"
+        resposta = []
+        with open(dados, encoding="utf8") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                if nome in str(row['Nome']):
+                    print()
+                    resposta.append([row['Atividade'], hashlib.sha224(bytes(row['Nome']+row['Atividade'], encoding='utf-8')).hexdigest()])
+        return resposta
     def geraArquivosCertificados(self):
         dados = os.path.dirname(os.path.realpath(__file__)) + "/static/certificados.csv"
-        cert_folder = os.path.dirname(os.path.realpath(__file__)) + "/static/certificados/"
-        temp_folder = os.path.dirname(os.path.realpath(__file__)) + "/temp/"
+        cert_folder = os.path.dirname(os.path.realpath(__file__)) + "/static/vendor/certificados/"
         cert_model = os.path.dirname(os.path.realpath(__file__)) + "/static/modelo.svg"
         cert_model_html = os.path.dirname(os.path.realpath(__file__)) + "/static/modelo.html"
         with open(dados, encoding="utf8") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 h = hashlib.sha224(bytes(row['Nome']+row['Atividade'], encoding='utf-8')).hexdigest()
-                shutil.copyfile(cert_model, os.path.join(temp_folder, h + ".svg"))
-                shutil.copyfile(cert_model_html, os.path.join(temp_folder, h + ".html"))
+                shutil.copyfile(cert_model, os.path.join(cert_folder, h + ".svg"))
+                shutil.copyfile(cert_model_html, os.path.join(cert_folder, h + ".html"))
                 replacements = {'[TIPO]':str(row['Tipo']), '[NOME]':str(row['Nome']), '[ATIVIDADE]':str(row['Atividade']), '[CH]':str(row['Carga Horaria'])}
                 lines = []
-                with open(os.path.join(temp_folder, h + ".svg"), encoding='utf8') as infile:
+                with open(os.path.join(cert_folder, h + ".svg"), encoding='utf8') as infile:
                     for line in infile:
                         for src, target in replacements.items():
                             line = line.replace(src, target)
                         lines.append(line)
-                with open(os.path.join(temp_folder, h + ".svg"), 'w', encoding='utf8') as outfile:
+                with open(os.path.join(cert_folder, h + ".svg"), 'w', encoding='utf8') as outfile:
                     for line in lines:
                         outfile.write(line)
                 lines = []
-                with open(os.path.join(temp_folder, h + ".html"), encoding='utf8') as infile:
+                with open(os.path.join(cert_folder, h + ".html"), encoding='utf8') as infile:
                     for line in infile:
                         line = line.replace("modelo.svg", h + ".svg")
                         lines.append(line)
-                with open(os.path.join(temp_folder, h + ".html"), 'w', encoding='utf8') as outfile:
+                with open(os.path.join(cert_folder, h + ".html"), 'w', encoding='utf8') as outfile:
                     for line in lines:
                         outfile.write(line)
-                options = {
-                    'page-size': 'Letter',
-                    'orientation': 'Landscape',
-                    'allow' : os.path.join(temp_folder, h + ".svg"),
-                    'javascript-delay' : 3000,
-                    'encoding': "UTF-8",
-                    'no-outline': None
-                }
-                pdfkit.from_file(os.path.join(temp_folder, h + ".html"), os.path.join(cert_folder, h + ".pdf"), options = options)
         print("Gerado certificados")
