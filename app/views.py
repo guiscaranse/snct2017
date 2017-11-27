@@ -8,15 +8,10 @@ Routes
 @app.route('/', methods=['GET'])
 def hello():
     teste = gerencia.Controle()
+    teste.geraArquivosCertificados()
     return render_template("index.html",
-                           manha_ter = teste.atividadesPorDia("24", "manha"),
-                           manha_quar = teste.atividadesPorDia("25", "manha"),
-                           manha_qui = teste.atividadesPorDia("26", "manha"),
-                           manha_sex = teste.atividadesPorDia("27", "manha"),
-                           noite_seg = teste.atividadesPorDia("23", "noite"),
-                           noite_ter = teste.atividadesPorDia("24", "noite"),
-                           noite_quar = teste.atividadesPorDia("25", "noite"),
-                           lista_ativ = sorted(teste.listaAtividades()))
+                            lista_ativ = sorted(teste.listaAtividades()),
+                            nomes_certi = sorted(teste.buscaCertDisponiveisPorInscrito()))
 @app.route('/subscribe', methods=["POST"])
 def subscribe():
     ctrl = gerencia.Controle()
@@ -62,3 +57,8 @@ def lista_uni():
     ctrl = gerencia.Controle()
     cod = request.form.get('atividades')[:4]
     return render_template("lista.html", cod = cod, nome = ctrl.getNome(cod), inscritos = ctrl.listaInscritos(cod))
+@app.route('/certificados', methods=["POST"])
+def certificados():
+    ctrl = gerencia.Controle()
+    nome = request.form.get('nome')
+    return render_template("lista.html")

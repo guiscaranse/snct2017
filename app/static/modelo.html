@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="./html2canvas.svg.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+<style>
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.bg {
+    /* The image used */
+    background:url("modelo.svg") no-repeat;
+    background-size: 100% 100%;
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+<div id="cc"></div>
+</body>
+<script>
+$(document).ready(function() {
+  html2canvas(document.body, {
+    onrendered: function(canvas) {
+      $(".bg").hide();
+      $("#cc").append(canvas);
+      console.log(canvas.toDataURL());
+      var imgData = canvas.toDataURL(
+          'image/png');
+      var doc = new jsPDF('p', 'mm');
+      doc.addImage(imgData, 'PNG', 10, 10);
+      doc.save('sample-file.pdf');
+    }
+  });
+});
+</script>
+</html>
