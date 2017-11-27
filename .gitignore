@@ -1,6 +1,6 @@
 /app/static/inscritos.csv
-/temp/*
-!/temp/README.md
+/app/static/vendor/certificados/*
+!/app/static/vendor/certificados/README.md
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
